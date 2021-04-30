@@ -1,6 +1,6 @@
 const sequelize = require("sequelize");
 
-const db = new sequelize("nodelogin", "root", "", {
+const db = new sequelize("jakarsaf_api_db", "jakarsaf-deployer", "Herya2020!", {
     dialect: "mysql"
 });
 
