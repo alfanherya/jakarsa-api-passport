@@ -101,4 +101,4 @@ app.post("/register", async (req, res) => {
     }
 })
 
-app.listen(3000, () => console.log("port berjalan di 4500"));
+app.listen(8080, () => console.log("port berjalan di 4500"));
