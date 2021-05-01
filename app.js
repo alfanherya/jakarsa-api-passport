@@ -32,20 +32,21 @@ const getUser = async obj => {
     });
 };
 
-
-
-
-
 app.use(express.urlencoded({ extended: true}));
 
-db.authenticate().then(() => console.log("database berhasil terkoneksi"));
+db.authenticate().then(() => 
+    console.log("database berhasil terkoneksi"));
 
 
 /**
  * Router untuk membuat url api nya berdasarkan method GET, POST, DELETE atau PUT
  */
-app.get("/", (req, res) => res.send("node bisa di buka di rest api"));
+app.get("/", (req, res) => 
+    res.send("node bisa di buka di rest api"));
 
+/**
+ * Routing untuk login 
+ */
 app.post("/login", async(req, res) => {
     try {
         const {email, password} = req.body
@@ -83,13 +84,15 @@ app.get("/protected", passport.authenticate("jwt", {session: false}), (req, res)
 
 })
 
-
+/**
+ * Routing untuk Registrasi
+ */
 app.post("/register", async (req, res) => {
     try {
-        const {email, password} = req.body
+        const {nama, alamat, email, password} = req.body
 
         const newUser = new User({
-            email, password
+            nama, alamat, email, password
         })
 
         await newUser.save();
@@ -101,4 +104,5 @@ app.post("/register", async (req, res) => {
     }
 })
 
-app.listen(8080, () => console.log("port berjalan di 4500"));
+app.listen(3000, () => 
+    console.log("port berjalan di 4500"));
